@@ -18,7 +18,7 @@ const CommentsContainer = ({ postId }) => {
             })
 
             try {
-                const res = await fetch(`http://localhost:1337/api/comments?${query}`);
+                const res = await fetch(`${process.env.NEXT_PUBLIC_ROOT_DOMAIN_NAME}/comments?${query}`);
                 const data = await res.json();
                 setComments(data.data);
             } catch (err) {

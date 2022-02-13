@@ -22,7 +22,7 @@ const CommentForm = ({ postId }) => {
                 posts: { id: postId }
             }
         }
-        const res = await fetch(`http://localhost:1337/api/comments`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_ROOT_DOMAIN_NAME}/comments`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
