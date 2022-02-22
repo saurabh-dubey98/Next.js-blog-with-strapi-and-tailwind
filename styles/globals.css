@@ -16,3 +16,9 @@
 .active-pagination-btn {
     @apply border dark:border-white pointer-events-none border-black
 }
+
+@layer utilities {
+    .margin-in-p-tag p {
+        margin-top: 10px;
+    }
+}

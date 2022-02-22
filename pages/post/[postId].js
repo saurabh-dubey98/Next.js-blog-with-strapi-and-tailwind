@@ -6,8 +6,8 @@ import { SectionContainer, MetaHeadInfo, AuthorInfo, CommentForm, CommentsContai
 const PostDetails = ({ data }) => {
     const { Title, content, publishedAt, featured_image, author } = data.data.attributes
     const { Name, Bio, Avatar } = author.data.attributes;
-    const imageUrl = `${process.env.NEXT_PUBLIC_DOMAIN_NAME}${featured_image.data.attributes.url}`;
-    const authorAvatar = `${process.env.NEXT_PUBLIC_DOMAIN_NAME}${Avatar.data.attributes.url}`;
+    const imageUrl = featured_image.data.attributes.url;
+    const authorAvatar = Avatar.data.attributes.url;
 
     return (
         <div className="main-container-style">
@@ -20,7 +20,7 @@ const PostDetails = ({ data }) => {
                     <span className="text-sm font-body font-light dark:text-white">{moment(publishedAt).format("DD MMM, YYYY h:m A")}</span>
                 </div>
                 <h1 className="font-body font-bold text-3xl dark:text-white">{Title}</h1>
-                <div className="font-body text-justify text-slate-700 text-lg leading-8 dark:text-slate-300" dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
+                <div className="font-body text-justify text-slate-700 text-lg leading-8 dark:text-slate-300 margin-in-p-tag" dangerouslySetInnerHTML={{ __html: marked(content) }}></div>
                 <AuthorInfo name={Name} bio={Bio} avatar={authorAvatar} />
                 <CommentForm postId={data.data.id} />
                 <CommentsContainer postId={data.data.id} />
