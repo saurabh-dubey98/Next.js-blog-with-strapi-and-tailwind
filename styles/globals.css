@@ -19,6 +19,10 @@
 
 @layer utilities {
     .margin-in-p-tag p {
-        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .margin-in-p-tag p:last-child {
+        margin-bottom: 0px;
     }
 }
